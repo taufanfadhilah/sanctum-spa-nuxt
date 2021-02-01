@@ -53,10 +53,10 @@ export default {
     doLogin() {
       const data = this.form
       this.$auth
-        .loginWith('laravelSanctum', {
+        .loginWith('local', {
           data,
         })
-        .then((res) => {
+        .then(() => {
           swal('Login Success', 'Hi, welcome', 'success').then(() =>
             this.$router.push('/')
           )

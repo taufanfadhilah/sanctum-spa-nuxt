@@ -44,7 +44,9 @@ export default {
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8000',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
@@ -62,6 +64,22 @@ export default {
             url: '/api/logout',
             method: 'post',
           },
+        },
+      },
+      local: {
+        token: {
+          property: 'data.token',
+          required: true,
+          type: 'Bearer',
+        },
+        user: {
+          property: '',
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/api/loginToken', method: 'post' },
+          logout: { url: '/api/logoutToken', method: 'post' },
+          user: { url: '/api/user', method: 'get' },
         },
       },
     },
